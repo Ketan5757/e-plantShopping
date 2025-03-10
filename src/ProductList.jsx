@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import './ProductList.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from './CartSlice';
 import CartItem from './CartItem';
+import './ProductList.css';
 
 function ProductList({ onHomeClick }) {
   const [showCart, setShowCart] = useState(false);
-  const [showPlants, setShowPlants] = useState(false);
+  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart.items); // Used for cart count
 
   const plantsArray = [
     {
@@ -214,6 +217,7 @@ function ProductList({ onHomeClick }) {
     }
   ];
 
+  // Inline styling for navbar elements
   const styleObj = {
     backgroundColor: '#4CAF50',
     color: '#fff',
@@ -249,7 +253,6 @@ function ProductList({ onHomeClick }) {
 
   const handlePlantsClick = (e) => {
     e.preventDefault();
-    setShowPlants(true);
     setShowCart(false);
   };
 
@@ -258,10 +261,16 @@ function ProductList({ onHomeClick }) {
     setShowCart(false);
   };
 
-  // Placeholder function for Add to Cart functionality
+  // When a product is added, convert its cost from string to number and dispatch to Redux
   const handleAddToCart = (plant) => {
     console.log("Added to cart:", plant);
-    // Implement cart logic here
+    const price = parseFloat(plant.cost.replace('$', ''));
+    dispatch(addItem({
+      name: plant.name,
+      price: price,
+      quantity: 1,
+      image: plant.image
+    }));
   };
 
   return (
