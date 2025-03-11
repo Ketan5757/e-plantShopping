@@ -6,12 +6,14 @@ import './ProductList.css';
 
 function ProductList({ onHomeClick }) {
   const [showCart, setShowCart] = useState(false);
+  const [notification, setNotification] = useState(''); // Notification state
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart.items); // Used for cart count
+  const cart = useSelector((state) => state.cart.items);
 
+  // Reduced data: one category with exactly 8 plants
   const plantsArray = [
     {
-      category: "Air Purifying Plants",
+      category: "Featured Plants",
       plants: [
         {
           name: "Snake Plant",
@@ -38,23 +40,6 @@ function ProductList({ onHomeClick }) {
           cost: "$20"
         },
         {
-          name: "Rubber Plant",
-          image: "https://cdn.pixabay.com/photo/2020/02/15/11/49/flower-4850729_1280.jpg",
-          description: "Easy to care for and effective at removing toxins.",
-          cost: "$17"
-        },
-        {
-          name: "Aloe Vera",
-          image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg",
-          description: "Purifies the air and has healing properties for skin.",
-          cost: "$14"
-        }
-      ]
-    },
-    {
-      category: "Aromatic Fragrant Plants",
-      plants: [
-        {
           name: "Lavender",
           image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3",
           description: "Calming scent, used in aromatherapy.",
@@ -67,151 +52,16 @@ function ProductList({ onHomeClick }) {
           cost: "$18"
         },
         {
-          name: "Rosemary",
-          image: "https://cdn.pixabay.com/photo/2019/10/11/07/12/rosemary-4541241_1280.jpg",
-          description: "Invigorating scent, often used in cooking.",
-          cost: "$15"
-        },
-        {
-          name: "Mint",
-          image: "https://cdn.pixabay.com/photo/2016/01/07/18/16/mint-1126282_1280.jpg",
-          description: "Refreshing aroma, used in teas and cooking.",
-          cost: "$12"
-        },
-        {
-          name: "Lemon Balm",
-          image: "https://cdn.pixabay.com/photo/2019/09/16/07/41/balm-4480134_1280.jpg",
-          description: "Citrusy scent, relieves stress and promotes sleep.",
-          cost: "$14"
-        },
-        {
-          name: "Hyacinth",
-          image: "https://cdn.pixabay.com/photo/2019/04/07/20/20/hyacinth-4110726_1280.jpg",
-          description: "Beautiful flowering plant known for its fragrance.",
-          cost: "$22"
-        }
-      ]
-    },
-    {
-      category: "Insect Repellent Plants",
-      plants: [
-        {
           name: "Oregano",
           image: "https://cdn.pixabay.com/photo/2015/05/30/21/20/oregano-790702_1280.jpg",
-          description: "The oregano plant contains compounds that deter insects.",
+          description: "Contains compounds that deter insects.",
           cost: "$10"
         },
-        {
-          name: "Marigold",
-          image: "https://cdn.pixabay.com/photo/2022/02/22/05/45/marigold-7028063_1280.jpg",
-          description: "Natural insect repellent that adds color to your garden.",
-          cost: "$8"
-        },
-        {
-          name: "Geraniums",
-          image: "https://cdn.pixabay.com/photo/2012/04/26/21/51/flowerpot-43270_1280.jpg",
-          description: "Known for insect-repelling properties and a pleasant scent.",
-          cost: "$20"
-        },
-        {
-          name: "Basil",
-          image: "https://cdn.pixabay.com/photo/2016/07/24/20/48/tulsi-1539181_1280.jpg",
-          description: "Repels flies and mosquitoes, and is used in cooking.",
-          cost: "$9"
-        },
-        {
-          name: "Lavender",
-          image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3",
-          description: "Calming scent used in aromatherapy.",
-          cost: "$20"
-        },
-        {
-          name: "Catnip",
-          image: "https://cdn.pixabay.com/photo/2015/07/02/21/55/cat-829681_1280.jpg",
-          description: "Repels mosquitoes and attracts cats.",
-          cost: "$13"
-        }
-      ]
-    },
-    {
-      category: "Medicinal Plants",
-      plants: [
         {
           name: "Aloe Vera",
           image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg",
-          description: "Soothing gel used for skin ailments.",
+          description: "Purifies the air and has healing properties for skin.",
           cost: "$14"
-        },
-        {
-          name: "Echinacea",
-          image: "https://cdn.pixabay.com/photo/2014/12/05/03/53/echinacea-557477_1280.jpg",
-          description: "Boosts the immune system and fights colds.",
-          cost: "$16"
-        },
-        {
-          name: "Peppermint",
-          image: "https://cdn.pixabay.com/photo/2017/07/12/12/23/peppermint-2496773_1280.jpg",
-          description: "Relieves digestive issues and headaches.",
-          cost: "$13"
-        },
-        {
-          name: "Lemon Balm",
-          image: "https://cdn.pixabay.com/photo/2019/09/16/07/41/balm-4480134_1280.jpg",
-          description: "Calms nerves and promotes relaxation.",
-          cost: "$14"
-        },
-        {
-          name: "Chamomile",
-          image: "https://cdn.pixabay.com/photo/2016/08/19/19/48/flowers-1606041_1280.jpg",
-          description: "Soothes anxiety and promotes sleep.",
-          cost: "$15"
-        },
-        {
-          name: "Calendula",
-          image: "https://cdn.pixabay.com/photo/2019/07/15/18/28/flowers-4340127_1280.jpg",
-          description: "Heals wounds and soothes skin irritations.",
-          cost: "$12"
-        }
-      ]
-    },
-    {
-      category: "Low Maintenance Plants",
-      plants: [
-        {
-          name: "ZZ Plant",
-          image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.0.3",
-          description: "Thrives in low light and requires minimal watering.",
-          cost: "$25"
-        },
-        {
-          name: "Pothos",
-          image: "https://cdn.pixabay.com/photo/2018/11/15/10/32/plants-3816945_1280.jpg",
-          description: "Tolerates neglect and grows in various conditions.",
-          cost: "$10"
-        },
-        {
-          name: "Snake Plant",
-          image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg",
-          description: "Needs infrequent watering and is pest-resistant.",
-          cost: "$15"
-        },
-        {
-          name: "Cast Iron Plant",
-          image: "https://cdn.pixabay.com/photo/2017/02/16/18/04/cast-iron-plant-2072008_1280.jpg",
-          description: "Hardy and tolerant of low light and neglect.",
-          cost: "$20"
-        },
-        {
-          name: "Succulents",
-          image: "https://cdn.pixabay.com/photo/2016/11/21/16/05/cacti-1846147_1280.jpg",
-          description: "Drought-tolerant with unique shapes and colors.",
-          cost: "$18"
-        },
-        {
-          name: "Aglaonema",
-          image: "https://cdn.pixabay.com/photo/2014/10/10/04/27/aglaonema-482915_1280.jpg",
-          description: "Low care and adds vibrant color to indoor spaces.",
-          cost: "$22"
         }
       ]
     }
@@ -261,7 +111,7 @@ function ProductList({ onHomeClick }) {
     setShowCart(false);
   };
 
-  // When a product is added, convert its cost from string to number and dispatch to Redux
+  // Dispatch action and show a fixed notification for 3 seconds
   const handleAddToCart = (plant) => {
     console.log("Added to cart:", plant);
     const price = parseFloat(plant.cost.replace('$', ''));
@@ -271,6 +121,10 @@ function ProductList({ onHomeClick }) {
       quantity: 1,
       image: plant.image
     }));
+    setNotification(`${plant.name} added to cart!`);
+    setTimeout(() => {
+      setNotification('');
+    }, 3000);
   };
 
   return (
@@ -322,14 +176,36 @@ function ProductList({ onHomeClick }) {
           </div>
         </div>
       </div>
+
+      {/* Fixed Notification Popup */}
+      {notification && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            color: 'white',
+            padding: '20px',
+            borderRadius: '10px',
+            zIndex: 1000,
+            fontSize: '18px'
+          }}
+          className="notification"
+        >
+          {notification}
+        </div>
+      )}
+
       {!showCart ? (
         <div className="product-grid">
           {plantsArray.map((category, catIndex) => (
-            <div key={catIndex} className="category">
+            <div key={`${category.category}-${catIndex}`} className="category">
               <h2 className="category-title">{category.category}</h2>
               <div className="category-plants">
                 {category.plants.map((plant, index) => (
-                  <div key={index} className="plant-card">
+                  <div key={`${plant.name}-${index}`} className="plant-card">
                     <img
                       src={plant.image}
                       alt={plant.name}
