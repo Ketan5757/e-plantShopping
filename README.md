@@ -1,4 +1,4 @@
-🌿 Paradise Nursery - E-Commerce Plant Store
+##🌿 Paradise Nursery - E-Commerce Plant Store
 
 📌 Project Overview
 
@@ -26,7 +26,7 @@ During my course, I forked the E-Plant Shopping repository and made several enha
 
 1️⃣ Clone the repository:
 
- git clone https://github.com/Ketan5757/eplant-shopping.git
+ git clone https://github.com/your-username/eplant-shopping.git
 
 2️⃣ Navigate into the project directory:
 
@@ -62,8 +62,9 @@ Debugging 404 errors in GitHub Pages
 
 Original Repository: E-Plant Shopping
 
-Forked & Enhanced by: Ketan5757
+Forked & Enhanced by: [Your Name]
 
 Technologies Used: React, Redux, Vite, GitHub Pages
 
 💡 Feel free to fork and modify this project further! 🚀
+
