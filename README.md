@@ -1,4 +1,4 @@
-##🌿 Paradise Nursery - E-Commerce Plant Store
+**🌿 Paradise Nursery - E-Commerce Plant Store**
 
 📌 Project Overview
 
