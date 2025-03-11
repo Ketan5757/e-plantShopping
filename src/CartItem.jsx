@@ -14,12 +14,6 @@ const CartItem = ({ onContinueShopping }) => {
       .toFixed(2);
   };
 
-  // Continue shopping: calls the parent function
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    onContinueShopping(e);
-  };
-
   // Increment quantity for a specific item
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
@@ -30,7 +24,6 @@ const CartItem = ({ onContinueShopping }) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
     } else {
-      // Remove item if quantity drops to 0
       dispatch(removeItem({ name: item.name }));
     }
   };
@@ -48,7 +41,7 @@ const CartItem = ({ onContinueShopping }) => {
   // Placeholder for checkout functionality
   const handleCheckoutShopping = (e) => {
     e.preventDefault();
-    alert('Functionality to be added for future reference');
+    alert('Checkout functionality will be added later');
   };
 
   return (
@@ -61,8 +54,15 @@ const CartItem = ({ onContinueShopping }) => {
           <div className="cart-item" key={item.name}>
             <img
               className="cart-item-image"
-              src={item.image}
+              src={item.image || "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg"}
               alt={item.name}
+              style={{
+                width: '150px',
+                height: '150px',
+                objectFit: 'cover',
+                borderRadius: '8px',
+                marginRight: '10px'
+              }}
             />
             <div className="cart-item-details">
               <div className="cart-item-name">{item.name}</div>
@@ -99,17 +99,11 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className="total_cart_amount"></div>
       <div className="continue_shopping_btn">
-        <button
-          className="get-started-button"
-          onClick={handleContinueShopping}
-        >
+        <button className="get-started-button" onClick={onContinueShopping}>
           Continue Shopping
         </button>
         <br />
-        <button
-          className="get-started-button1"
-          onClick={handleCheckoutShopping}
-        >
+        <button className="get-started-button1" onClick={handleCheckoutShopping}>
           Checkout
         </button>
       </div>
