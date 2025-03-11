@@ -69,8 +69,8 @@ Then, visit: https://ketan5757.github.io/eplant-shopping/
 - Debugging 404 errors in GitHub Pages
   
 ## 🤝 Contributions & Credits
-- Original Repository: E-Plant Shopping
-- Forked & Enhanced by: Ketan5757
+- Original Repository: https://github.com/ibm-developer-skills-network/e-plantShopping
+- Forked & Enhanced by: Ketan5757 - https://github.com/Ketan5757/eplant-shopping
 - Technologies Used: React, Redux, Vite, GitHub Pages
 
 💡 Feel free to fork and modify this project further! 🚀
