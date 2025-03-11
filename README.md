@@ -36,33 +36,41 @@ During my course, I forked the E-Plant Shopping repository and made several enha
 
 ```bash
 git clone https://github.com/Ketan5757/eplant-shopping.git
-2️⃣ Navigate into the project directory:
-bash
-Copy
-cd eplant-shopping
-3️⃣ Install dependencies:
-bash
-Copy
-npm install
-4️⃣ Start the development server:
-bash
-Copy
-npm run dev
-🚀 Deployment
-This project is deployed using GitHub Pages. To redeploy after making changes:
+```
+### 2️⃣ Navigate into the project directory:
 
-bash
-Copy
+```bash
+cd eplant-shopping
+```
+
+### 3️⃣ Install dependencies:
+
+```bash
+npm install
+```
+
+### 4️⃣ Start the development server:
+```bash
+npm run dev
+```
+
+## 🚀 Deployment
+This project is deployed using GitHub Pages. To redeploy after making changes:
+```bash
 npm run deploy
+```
 Then, visit: https://ketan5757.github.io/eplant-shopping/
 
-🎯 Lessons Learned
-Working with React and Redux to manage state efficiently
-Handling dynamic routing with react-router-dom
-Configuring Vite for optimal build and deployment
-Debugging 404 errors in GitHub Pages
-🤝 Contributions & Credits
-Original Repository: E-Plant Shopping
-Forked & Enhanced by: Ketan5757
-Technologies Used: React, Redux, Vite, GitHub Pages
+## 🎯 Lessons Learned
+
+- Working with React and Redux to manage state efficiently
+- Handling dynamic routing with react-router-dom
+- Configuring Vite for optimal build and deployment
+- Debugging 404 errors in GitHub Pages
+  
+## 🤝 Contributions & Credits
+- Original Repository: E-Plant Shopping
+- Forked & Enhanced by: Ketan5757
+- Technologies Used: React, Redux, Vite, GitHub Pages
+
 💡 Feel free to fork and modify this project further! 🚀
